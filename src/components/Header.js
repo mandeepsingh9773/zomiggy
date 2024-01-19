@@ -1,5 +1,5 @@
 import { useState } from "react";
-import FoodFireLogo from "../Images/Food Fire Logo.png";
+import FoodFireLogo from "../../Images/Food Fire Logo.png";
 
 // Title component for display logo
 const Title = () => (

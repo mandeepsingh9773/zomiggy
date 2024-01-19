@@ -3,9 +3,8 @@
 
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Header from "./Components/Header";
-import Body from "./Components/Body";
-import Footer from "./Components/Footer";
+import Header from "./src/components/Header";
+import Body from "./src/components/Body";
 
 /* My Food App structure will look like this, 
             1) Header
@@ -31,7 +30,7 @@ const AppLayout = () => {
     <React.Fragment>
       <Header />
       <Body />
-      <Footer />
+      {/* <Footer /> */}
     </React.Fragment>
   );
 };

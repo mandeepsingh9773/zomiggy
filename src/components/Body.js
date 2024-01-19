@@ -1,7 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react"; 
 import Shimmer from "./Shimmer"; 
-import { swiggy_api_URL } from "../constants";
+import { swiggy_api_URL } from "../utils/constants";
 
 // Filter the restaurant data according input type
 function filterData(searchText, restaurants) {
