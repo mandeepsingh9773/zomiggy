@@ -1,10 +1,8 @@
-// ## Namaste React Course by Akshay Saini
-// # Chapter 06 - Exploring the world
-
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
 import Body from "./src/components/Body";
+import { createBrowserRouter } from "react-router-dom";
 
 /* My Food App structure will look like this, 
             1) Header
@@ -23,17 +21,24 @@ import Body from "./src/components/Body";
                 - Copyrights
        
 */
-
-// AppLayout component to render: Header, Body and Footer Component
 const AppLayout = () => {
   return (
     <React.Fragment>
       <Header />
       <Body />
-      {/* <Footer /> */}
     </React.Fragment>
   );
 };
+
+const AppRouter = createBrowserRouter([
+  {
+    path:"/",
+    element:<AppLayout />,
+    children:{
+
+    }
+  }
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<AppLayout />);
