@@ -2,43 +2,43 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
 import Body from "./src/components/Body";
-import { createBrowserRouter } from "react-router-dom";
+import About from "./src/components/About.js";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import RestaurantMenu from "./src/components/RestaurantMenu.js";
+import { MyContextProvider } from "./DataContext.js";
 
-/* My Food App structure will look like this, 
-            1) Header
-                - Logo
-                - Nav Items(right side)
-                - Cart
-            2) Body
-                - Search bar
-                - Restaurants List
-                    - Restaurant card
-                        - Image
-                        - Name
-                        - Rating
-            3) Footer
-                - Links
-                - Copyrights
-       
-*/
 const AppLayout = () => {
   return (
-    <React.Fragment>
+    <div className="App">
       <Header />
-      <Body />
-    </React.Fragment>
+      <Outlet />
+    </div>
   );
 };
-
 const AppRouter = createBrowserRouter([
   {
-    path:"/",
-    element:<AppLayout />,
-    children:{
-
-    }
-  }
+    path: "/",
+    element: (
+      <MyContextProvider>
+        <AppLayout />
+      </MyContextProvider>
+    ),
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/About",
+        element: <About />,
+      },
+      {
+        path: "/restaurants/:redId",
+        element: <RestaurantMenu />,
+      },
+    ],
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
+root.render(<RouterProvider router={AppRouter} />);
